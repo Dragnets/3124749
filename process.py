@@ -40,30 +40,43 @@ class Process():
     def findLengthSum (self,length): #Q1
         if length >= 6.346:
             self.total +=length
+    def get_Length(self): return self.total
 
     def percentageOfMark (self,mark): #Q2                 
         if mark >= 52 and mark <= 123:
             self.markPart +=1
+        self.markPerc = self.percentage(self.markPart,self.whole) #Q2
+    def get_Mark(self): return self.markPerc
 
     def percentageOfAction (self,action): #Q3
         if action.lower() == self.find_action:
             self.actionPart +=1
+        self.actionPerc = self.percentage(self.actionPart, self.whole) # 3
+    def get_Action(self): return self.actionPerc
 
     def meanCount(self, count): #4
         self.summ += count
+        if self.summ and self.whole == 0:
+            self.countMean= 0
+        else:
+            self.countMean = self.summ/self.whole 
+    def get_Count(self): return self.countMean
 
     def codeMatch(self,code): #Q5
         import re
         if re.search (r'\[[A-Z][0-9]+\][0-9]+[A-Z]{2}[0-9]+#[0-9]+', code) is None:
             self.match +=1
+    def get_Match(self): return self.match
         
-    def percentageOfTree(self,tree):
+    def percentageOfTree(self,tree): #6
         if tree.lower() == self.find_tree:
             self.treePart +=1
+    def get_Tree(self): return self.treePerc
         
-    def countLine(self,length, count):
+    def countLine(self,length, count): #7
         if length > 2.223 or count < 742:
             self.linePart +=1
+    def get_LineCount(self): return self.linePart
 
     def reset(self):
         self.total  = 0            #Q1
@@ -77,13 +90,9 @@ class Process():
         self.treePart  = 0         #6
         self.treePerc  = 0
         self.linePart  = 0         #7
-        
-    
+
     def showAnswer(self):
-        self.markPerc = self.percentage(self.markPart,self.whole)
         self.treePerc = self.percentage(self.treePart,self.whole)
-        self.countMean = self.summ/self.whole
-        self.actionPerc = self.percentage(self.actionPart, self.whole)
         return ('''
 \n\bQ1 Find the sum of the values in the field [length] more than or equal to (6.346)\nThe sum is: %0.3f
 \n\bQ2 What percentage of the numbers in [mark] lie between (52) and (123) inclusive?\nThe answer is: %0.0f 
