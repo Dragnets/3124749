@@ -3,12 +3,12 @@
 #Raitis Kupce
 
 class FileReader():
-    
+    '''Reads csv files and puts into variables'''
     def __init__(self, filename, process):
         self.process = process
         self.filename = filename
 
-    def run(self,):
+    def run(self):
         theFile = open(self.filename, 'r')
         theFile.readline()
         for line in theFile:

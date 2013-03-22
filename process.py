@@ -71,6 +71,7 @@ class Process():
     def percentageOfTree(self,tree): #6
         if tree.lower() == self.find_tree:
             self.treePart +=1
+        self.treePerc = self.percentage(self.treePart,self.whole)
     def get_Tree(self): return self.treePerc
         
     def countLine(self,length, count): #7
@@ -92,7 +93,6 @@ class Process():
         self.linePart  = 0         #7
 
     def showAnswer(self):
-        self.treePerc = self.percentage(self.treePart,self.whole)
         return ('''
 \n\bQ1 Find the sum of the values in the field [length] more than or equal to (6.346)\nThe sum is: %0.3f
 \n\bQ2 What percentage of the numbers in [mark] lie between (52) and (123) inclusive?\nThe answer is: %0.0f 
