@@ -5,6 +5,7 @@
 
 class Process():
     ''' Works out all the answers for each qustion, commens refers to a question.'''
+    
     def __init__ (self,):
         self.total  = 0            #Q1
         self.whole  = 0
@@ -23,6 +24,7 @@ class Process():
         
     def percentage(self,part,whole):
         '''Works out percentage taking two argument whole and part.'''
+        
         if whole == 0:
             return 0
         return (part/whole)*100
@@ -37,48 +39,60 @@ class Process():
         self.codeMatch(code)
         self.percentageOfTree (tree)
         self.countLine(length,count)
-        self.whole +=1
+        self.whole +=1              # Counts how many rows
         
     def findLengthSum (self,length): #Q1
         '''finds the sum in [length] which is more than or equal to (6.346)'''
         
         if length >= 6.346:
-            self.total +=length
+            self.total +=length # add to field self.total if condition is true
     def get_Length(self): return self.total
 
-    def percentageOfMark (self,mark): #Q2                 
+    def percentageOfMark (self,mark): #Q2
+        '''What Percentage of mark lies between 52 and 123 inclusive?'''
+        
         if mark >= 52 and mark <= 123:
-            self.markPart +=1
-        self.markPerc = self.percentage(self.markPart,self.whole) #Q2
+            self.markPart +=1 
+        self.markPerc = self.percentage(self.markPart,self.whole) # Works out percentage
     def get_Mark(self): return self.markPerc
 
     def percentageOfAction (self,action): #Q3
+        '''Works out percentage of given valua from field action'''
+        
         if action.lower() == self.find_action:
             self.actionPart +=1
-        self.actionPerc = self.percentage(self.actionPart, self.whole) # 3
+        self.actionPerc = self.percentage(self.actionPart, self.whole)
     def get_Action(self): return self.actionPerc
 
-    def meanCount(self, count): #4
+    def meanCount(self, count): #Q4
+        '''Finds average of given field'''
+        
         self.summ += count
         if self.summ and self.whole == 0:
-            self.countMean= 0
+            self.countMean= 0  # To avoid of error as firt value is 0
         else:
             self.countMean = self.summ/self.whole 
     def get_Count(self): return self.countMean
 
     def codeMatch(self,code): #Q5
+        '''Search how many valid format'''
+        
         import re
         if re.search (r'\[[A-Z][0-9]+\][0-9]+[A-Z]{2}[0-9]+#[0-9]+', code) is None:
-            self.match +=1
+            self.match +=1  # counts how many regular expresion format match found
     def get_Match(self): return self.match
         
     def percentageOfTree(self,tree): #6
-        if tree.lower() == self.find_tree:
+        '''What percentage of given string is in the field tree?'''
+        
+        if tree.lower() == self.find_tree.lower():
             self.treePart +=1
         self.treePerc = self.percentage(self.treePart,self.whole)
     def get_Tree(self): return self.treePerc
         
     def countLine(self,length, count): #7
+        '''Counts lines where [length] is more than 2.223 or [count] is lees than 742'''
+        
         if length > 2.223 or count < 742:
             self.linePart +=1
     def get_LineCount(self): return self.linePart

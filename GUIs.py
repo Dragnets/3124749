@@ -96,7 +96,7 @@ class TaskGUI():
         '''Ability to browse the file in your computer'''
         
         self.browsedFile = os.path.basename(askopenfilename(filetypes=[('','.csv')]))
-        self.box.set(self.browsedFile) # IAM HERE >>>>>>>>>>>>>>>>>>>>>>>>>>>
+        self.box.set(self.browsedFile) 
         self.browseActive= True # To mark that this function has been used.
 
     def check_combo(self,filename):

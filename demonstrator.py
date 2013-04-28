@@ -29,9 +29,3 @@ class Demonstrator():
     def displayQ5(self): return '%d'% (self.process.get_Match())
     def displayQ6(self): return '%0.2f%%'% (self.process.get_Tree())
     def displayQ7(self): return '%d'% (self.process.get_LineCount())
-
-##print("These are the files available to you: \nA= 3124749a.csv\nB= 3124749b.csv\nC= 3124749c.csv")
-##files=input("\nPlease choose the file from above available to you A,B or C: ")
-####a = Demonstrator(files)
-##a = Demonstrator("3124749"+files+".csv")
-##a.displayResults()
