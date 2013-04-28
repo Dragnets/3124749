@@ -28,6 +28,8 @@ class Process():
         return (part/whole)*100
 
     def runProcess(self,length,mark,action,count,code,tree):
+        ''' Run all question in one go'''
+        
         self.findLengthSum (length)
         self.percentageOfMark(mark)
         self.percentageOfAction (action)
@@ -38,6 +40,8 @@ class Process():
         self.whole +=1
         
     def findLengthSum (self,length): #Q1
+        '''finds the sum in [length] which is more than or equal to (6.346)'''
+        
         if length >= 6.346:
             self.total +=length
     def get_Length(self): return self.total
