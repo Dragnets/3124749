@@ -74,7 +74,7 @@ class TaskGUI():
         #self.parent=header # combobox, might not need ##################################
 
         self.combo(header)  #Combo box
-        Button(body, text='QUIT', fg='red', font='arial -15 bold', command=master.destroy).grid(row=9, column=2, sticky=E)
+        Button(body, text='QUIT', fg='red', font='arial -18 bold', command=master.destroy).grid(row=9, column=3,)
 
         #Layout manager
         #MVC pattern
@@ -100,14 +100,14 @@ class TaskGUI():
         self.browseActive= True # To mark that this function has been used.
 
     def check_combo(self,filename):
-        '''Check If file alreadi is in combobox'''
+        '''Check If file alreadi is in combo box'''
 
         for file in self.fileUsed:
             if file == filename:
                 return False
         return True
     
-   # def filevalidation(self, filename):
+    #def filevalidation(self, filename):
         
         
     def combo(self,frame):
@@ -116,8 +116,8 @@ class TaskGUI():
         self.box_value = StringVar()
         self.box = ttk.Combobox(frame, textvariable=self.box_value,
                                 state='readonly')
-        self.fileUsed=['3124749a.csv', '3124749b.csv', '3124749c.csv']
-        self.box['values'] = (self.fileUsed) # Default combo list
+        self.fileUsed=['3124749a.csv', '3124749b.csv', '3124749c.csv'] # Default combo list
+        self.box['values'] = (self.fileUsed) 
         self.box.current(0)
         self.box.grid(row=3, column=2)
         
@@ -125,7 +125,7 @@ class TaskGUI():
     def notify(self):
         ''' Get the value from each question to display them on screen '''
         
-        self.Q1['text'] = str(self.reader.displayQ1()) 
+        self.Q1['text'] = str(self.reader.displayQ1())  # Use Demonstrator method to get value.
         self.Q2['text'] = str(self.reader.displayQ2())
         self.Q3['text'] = str(self.reader.displayQ3())
         self.Q4['text'] = str(self.reader.displayQ4())
@@ -145,5 +145,6 @@ if __name__ == "__main__":
     top.mainloop()
 
 
-
-    # To store file so it remembers.cfg xml 
+    # Refactoring resoable coding 
+    # To store file so it remembers.cfg xml
+    # Cancel browse log and process 

@@ -4,22 +4,27 @@
 #Raitis Kupce
 
 class Process():
-    ''' Works out all the answers for each qustion, commens refers to a question.'''
+    ''' Works out all the answers for each qustion, comments refers to a question.'''
     
     def __init__ (self,):
+        self.reset()               #calls resets method 
+        self.find_action = "sell"  #Q3
+        self.find_tree = "ebony"   #Q6
+
+    def reset(self):
+        '''Resets all fields to 0'''
+        
         self.total  = 0            #Q1
         self.whole  = 0
         self.markPart = 0          #Q2
-        self.find_action = "sell"  #Q3
-        self.actionPart  = 0
+        self.actionPart  = 0       #Q3
         self.actionPerc  = 0
-        self.summ      = 0         #4
+        self.summ      = 0         #Q4
         self.countMean = 0         
-        self.match     = 0         #5
-        self.find_tree = "ebony"   #6
-        self.treePart  = 0
+        self.match     = 0         #Q5  
+        self.treePart  = 0         #Q6
         self.treePerc  = 0
-        self.linePart  = 0         #7
+        self.linePart  = 0         #Q7
         
         
     def percentage(self,part,whole):
@@ -40,6 +45,7 @@ class Process():
         self.percentageOfTree (tree)
         self.countLine(length,count)
         self.whole +=1              # Counts how many rows
+        
         
     def findLengthSum (self,length): #Q1
         '''finds the sum in [length] which is more than or equal to (6.346)'''
@@ -82,7 +88,7 @@ class Process():
             self.match +=1  # counts how many regular expresion format match found
     def get_Match(self): return self.match
         
-    def percentageOfTree(self,tree): #6
+    def percentageOfTree(self,tree): #Q6
         '''What percentage of given string is in the field tree?'''
         
         if tree.lower() == self.find_tree.lower():
@@ -90,25 +96,12 @@ class Process():
         self.treePerc = self.percentage(self.treePart,self.whole)
     def get_Tree(self): return self.treePerc
         
-    def countLine(self,length, count): #7
+    def countLine(self,length, count): #Q7
         '''Counts lines where [length] is more than 2.223 or [count] is lees than 742'''
         
         if length > 2.223 or count < 742:
             self.linePart +=1
     def get_LineCount(self): return self.linePart
-
-    def reset(self):
-        self.total  = 0            #Q1
-        self.whole  = 0
-        self.markPart = 0          #Q2
-        self.actionPart  = 0       #Q3
-        self.actionPerc  = 0
-        self.summ      = 0         #4
-        self.countMean = 0         
-        self.match     = 0         #5  
-        self.treePart  = 0         #6
-        self.treePerc  = 0
-        self.linePart  = 0         #7
 
     def showAnswer(self):
         return ('''
