@@ -70,8 +70,6 @@ class TaskGUI():
         self.Q7 = Label (body, width=10, bg='lightblue')
         self.Q7.grid(row=8, column=3, sticky=E)
         # END OF Questions >>>
-        
-        #self.parent=header # combobox, might not need ##################################
 
         self.combo(header)  #Combo box
         Button(body, text='QUIT', fg='red', font='arial -18 bold', command=master.destroy).grid(row=9, column=3,)
