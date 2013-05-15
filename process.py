@@ -4,7 +4,8 @@
 #Raitis Kupce
 
 class Process():
-    ''' Works out all the answers for each qustion, comments refers to a question.'''
+    ''' Works out all the answers for each question,
+    comments refers to a question.'''
     
     def __init__ (self,):
         self.reset()               #calls resets method 
@@ -46,7 +47,17 @@ class Process():
         self.countLine(length,count)
         self.whole +=1              # Counts how many rows
         
+    def workOut(self):
+        '''This method works out percentage and mean'''
         
+        self.markPerc = self.percentage(self.markPart,self.whole) #Q2 Works out percentage 
+        self.actionPerc = self.percentage(self.actionPart, self.whole)#Q3
+        if self.summ == 0 or self.whole == 0:       #Q4
+            self.countMean= 0  # To avoid of error if 0
+        else:
+            self.countMean = self.summ/self.whole
+        self.treePerc = self.percentage(self.treePart,self.whole) #Q6
+
     def findLengthSum (self,length): #Q1
         '''finds the sum in [length] which is more than or equal to (6.346)'''
         
@@ -59,25 +70,19 @@ class Process():
         
         if mark >= 52 and mark <= 123:
             self.markPart +=1 
-        self.markPerc = self.percentage(self.markPart,self.whole) # Works out percentage
     def get_Mark(self): return self.markPerc
 
     def percentageOfAction (self,action): #Q3
-        '''Works out percentage of given valua from field action'''
+        '''Works out percentage of given value from field action'''
         
-        if action.lower() == self.find_action:
+        if action.lower() == self.find_action.lower():
             self.actionPart +=1
-        self.actionPerc = self.percentage(self.actionPart, self.whole)
     def get_Action(self): return self.actionPerc
 
     def meanCount(self, count): #Q4
         '''Finds average of given field'''
         
-        self.summ += count
-        if self.summ and self.whole == 0:
-            self.countMean= 0  # To avoid of error as firt value is 0
-        else:
-            self.countMean = self.summ/self.whole 
+        self.summ += count 
     def get_Count(self): return self.countMean
 
     def codeMatch(self,code): #Q5
@@ -93,7 +98,6 @@ class Process():
         
         if tree.lower() == self.find_tree.lower():
             self.treePart +=1
-        self.treePerc = self.percentage(self.treePart,self.whole)
     def get_Tree(self): return self.treePerc
         
     def countLine(self,length, count): #Q7

@@ -13,7 +13,8 @@ class Demonstrator():
         self.process = Process()                        # Creats an object                    
         self.reader = FileReader(filename,self.process) # Creates an object
         self.reader.run()                               # call the run method
-        
+        self.process.workOut()
+            
     def newFile(self,filename):
         '''Ressets object and run the object again'''
         
